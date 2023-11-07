@@ -1,3 +1,4 @@
+import { Header } from "@/components/ui/header";
 import { ptBR } from "@clerk/localizations";
 import { ClerkProvider } from "@clerk/nextjs";
 import type { Metadata } from "next";
@@ -19,7 +20,10 @@ export default function RootLayout({
   return (
     <ClerkProvider localization={ptBR}>
       <html lang="ptBR">
-        <body className={inter.className}>{children}</body>
+        <body className={inter.className}>
+          <Header />
+          {children}
+        </body>
       </html>
     </ClerkProvider>
   );
