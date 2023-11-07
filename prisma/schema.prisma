@@ -6,3 +6,74 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+model Especie {
+  id   Int    @id @default(autoincrement())
+  slug String
+  nome String
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  animais Animal[]
+}
+
+model Animal {
+  id        String     @id @default(uuid())
+  slug      String
+  nome      String
+  especie   Especie @relation(fields: [especieId], references: [id])
+  especieId Int
+  sexo      Sexo
+  peso      Float
+  foto      String
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  medicalRecords RegistroMedico[]
+  visits         VisitaVeterinario[]
+  vaccines       CalendarioVacinacao[]
+}
+
+model RegistroMedico {
+  id        String     @id @default(uuid())
+  animal    Animal   @relation(fields: [animalId], references: [id], onDelete: Cascade)
+  animalId  String
+  data      DateTime
+  titulo    String
+  descricao String
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model VisitaVeterinario {
+  id          String     @id @default(uuid())
+  animal      Animal   @relation(fields: [animalId], references: [id], onDelete: Cascade)
+  animalId    String
+  data        DateTime
+  horario     DateTime
+  titulo      String
+  veterinario String
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model CalendarioVacinacao {
+  id       String     @id @default(uuid())
+  animal   Animal   @relation(fields: [animalId], references: [id], onDelete: Cascade)
+  animalId String
+  data     DateTime
+  horario  DateTime
+  vacina   String
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+enum Sexo {
+  MACHO
+  FEMEA
+}
