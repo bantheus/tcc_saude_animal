@@ -1,3 +1,5 @@
+import Search from "./ui/search";
+
 export default function Home() {
-  return <div>teste</div>;
+  return <Search placeholder="Buscar animal" />;
 }
