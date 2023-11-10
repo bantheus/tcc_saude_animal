@@ -20,7 +20,7 @@ export default function RootLayout({
   return (
     <ClerkProvider localization={ptBR}>
       <html lang="ptBR">
-        <body className={inter.className}>
+        <body className={`${inter.className} p-5`}>
           <Header />
           {children}
         </body>
