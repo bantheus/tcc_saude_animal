@@ -22,14 +22,14 @@ const Header = () => {
   }
 
   return (
-    <Card className="flex justify-between items-center p-5 border-none rounded-none shadow-none">
+    <Card className="flex justify-between items-center border-none rounded-none shadow-none">
       <h1 className="text-lg">
         {" "}
         <span className="text-[#64CCC5]">Saúde</span> Animal
       </h1>
       <Sheet>
         <SheetTrigger asChild>
-          <Button size="icon" variant="ghost">
+          <Button size="lg" variant="ghost" className="p-0">
             <MenuIcon />
           </Button>
         </SheetTrigger>
