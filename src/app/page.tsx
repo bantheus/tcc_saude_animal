@@ -1,5 +1,13 @@
-import Search from "./ui/search";
+import { Suspense } from "react";
+import LatestAnimalsCard from "./ui/latest-animals-card";
+import LatestAnimalsCardSkeleton from "./ui/skeletons/skeletons";
 
 export default function Home() {
-  return <Search placeholder="Buscar animal" />;
+  return (
+    <>
+      <Suspense fallback={<LatestAnimalsCardSkeleton />}>
+        <LatestAnimalsCard />
+      </Suspense>
+    </>
+  );
 }
