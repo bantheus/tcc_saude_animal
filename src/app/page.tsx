@@ -1,13 +1,9 @@
-import { Suspense } from "react";
-import LatestAnimalsCard from "./ui/latest-animals-card";
-import LatestAnimalsCardSkeleton from "./ui/skeletons/skeletons";
+import LatestAnimalsCard from "./ui/home-page-skeleton";
 
 export default function Home() {
   return (
     <>
-      <Suspense fallback={<LatestAnimalsCardSkeleton />}>
-        <LatestAnimalsCard />
-      </Suspense>
+      <LatestAnimalsCard />
     </>
   );
 }

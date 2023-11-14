@@ -3,7 +3,9 @@ import { ptBR } from "@clerk/localizations";
 import { ClerkProvider } from "@clerk/nextjs";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import { Suspense } from "react";
 import "./globals.css";
+import HomePageSkeleton from "./ui/skeletons/skeletons";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,8 +23,10 @@ export default function RootLayout({
     <ClerkProvider localization={ptBR}>
       <html lang="ptBR">
         <body className={`${inter.className} p-5`}>
-          <Header />
-          {children}
+          <Suspense fallback={<HomePageSkeleton />}>
+            <Header />
+            {children}
+          </Suspense>
         </body>
       </html>
     </ClerkProvider>
