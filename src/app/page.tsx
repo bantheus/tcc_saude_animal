@@ -4,7 +4,7 @@ import LatestAnimalsCard from "./ui/latest-animals-card";
 
 export default function Home() {
   return (
-    <>
+    <main className="px-5">
       <LatestAnimalsCard />
 
       <Button
@@ -15,6 +15,6 @@ export default function Home() {
         Ver todos
         <ArrowRightIcon size={16} />
       </Button>
-    </>
+    </main>
   );
 }

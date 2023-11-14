@@ -1,3 +1,4 @@
+import { Footer } from "@/components/ui/footer";
 import { Header } from "@/components/ui/header";
 import { ptBR } from "@clerk/localizations";
 import { ClerkProvider } from "@clerk/nextjs";
@@ -22,10 +23,11 @@ export default function RootLayout({
   return (
     <ClerkProvider localization={ptBR}>
       <html lang="ptBR">
-        <body className={`${inter.className} p-5`}>
+        <body className={`${inter.className} `}>
           <Suspense fallback={<HomePageSkeleton />}>
             <Header />
             {children}
+            <Footer />
           </Suspense>
         </body>
       </html>

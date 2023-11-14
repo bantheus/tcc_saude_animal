@@ -22,7 +22,7 @@ const Header = () => {
   }
 
   return (
-    <Card className="flex justify-between items-center border-none rounded-none shadow-none">
+    <Card className="flex justify-between items-center border-none rounded-none shadow-none p-5">
       <h1 className="text-lg">
         {" "}
         <span className="text-[#64CCC5]">Saúde</span> Animal
